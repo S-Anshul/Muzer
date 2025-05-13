@@ -1,105 +1,78 @@
-<h2>Muzer</h2>
+<h1>Muzer</h1>
+This project includes both frontend and backend services with Docker support, Redis, PostgreSQL, and Prisma.
 
-Installation
-With Docker
-Clone the repository:
+<h2>Installation</h2>
 
-bash
-Copy
-Edit
-git clone https://github.com/your-username/muzer.git
-Navigate to the project directory:
+<h2>With Docker</h2>
 
-bash
-Copy
-Edit
-cd muzer
-Create a .env file based on the .env.example file and configure everything in both the next-app and ws folders.
+1.Clone the repository:
+`git clone https://github.com/your-username/muzer.git`
 
-Start the application with Docker:
+2.Navigate to the project directory:
+`cd muzer`
 
-bash
-Copy
-Edit
-docker compose up -d
-Without Docker
-Clone the repository:
+3.Set up environment files:
+Create a .env file based on the .env.example in both the next-app and ws folders.
 
-bash
-Copy
-Edit
-git clone https://github.com/your-username/muzer.git
-Navigate to the project directory:
+4.Start the app with Docker:
+`docker compose up -d`
 
-bash
-Copy
-Edit
-cd muzer
-Install the dependencies:
 
-bash
-Copy
-Edit
-cd next-app
-pnpm install
-cd ..
-cd ws 
-pnpm install
-Create a .env file based on the .env.example file and configure everything in both the next-app and ws folders.
+<h3>Without Docker</h3>
 
-For PostgreSQL, run:
-bash
-Copy
-Edit
-docker run -d \
---name muzer-db \
--e POSTGRES_USER=myuser \
--e POSTGRES_PASSWORD=mypassword \
--e POSTGRES_DB=mydatabase \
--p 5432:5432 \
-postgres
-For Redis Stack, run:
-bash
-Copy
-Edit
-docker run -d \
---name muzer-redis \
--e REDIS_USERNAME=admin \
--e REDIS_PASSWORD=root \
--e REDIS_PORT=6379 \
--e REDIS_HOST="127.0.0.1" \
--e REDIS_BROWSER_STACK_PORT=8001 \
-redis/redis-stack:latest 
-Post-install setup:
+1.Clone the repository:
+`git clone https://github.com/your-username/muzer.git`
 
-bash
-Copy
-Edit
-cd next-app
+2.Navigate to the project directory:
+`cd muzer`
+
+3.Install dependencies:
+`cd next-app
+npm install
+cd ../ws
+npm install`
+
+4.Set up environment files:
+Create a .env file based on the .env.example in both the next-app and ws folders.
+
+5.Run PostgreSQL using Docker:
+`docker run -d \
+  --name muzer-db \
+  -e POSTGRES_USER=myuser \
+  -e POSTGRES_PASSWORD=mypassword \
+  -e POSTGRES_DB=mydatabase \
+  -p 5432:5432 \
+  postgres`
+
+6.Run Redis Stack using Docker:
+`docker run -d \
+  --name muzer-redis \
+  -e REDIS_USERNAME=admin \
+  -e REDIS_PASSWORD=root \
+  -e REDIS_PORT=6379 \
+  -e REDIS_HOST="127.0.0.1" \
+  -e REDIS_BROWSER_STACK_PORT=8001 \
+  redis/redis-stack:latest`
+  
+7.Post-install steps:
+`cd next-app
 pnpm postinstall
-cd ..
-cd ws 
-pnpm postinstall
-Start the application:
+cd ../ws
+pnpm postinstall`
 
-bash
-Copy
-Edit
-cd next-app
+8.Start the development servers:
+`cd next-app
 pnpm dev
-cd ..
-cd ws
-pnpm dev
-Usage
-Open the app in your browser: http://localhost:3000
+cd ../ws
+pnpm dev`
 
-Access Redis Stack: http://localhost:8001/redis-stack/browser
+<h3>Usage</h3>
 
-Open Prisma Studio:
+🌐 Open the app: http://localhost:3000
 
-bash
-Copy
-Edit
-cd next-app
+📊 Access Redis Stack UI: http://localhost:8001/redis-stack/browser
+
+🔍 Open Prisma Studio:
+`cd next-app
 pnpm run prisma:studio
-Prisma Studio URL: http://localhost:5555
+URL: http://localhost:5555`
